@@ -16,6 +16,7 @@ require('dotenv').config();
 (async () => {
   const apiKey = process.argv[2] || process.env.CIRCLE_TOKEN;
   const vcsSlug = process.argv[3] || process.env.VCS_SLUG;
+  const workflowName = process.argv[3] || process.env.BUILD_WORKFLOW_NAME;
 
   const results = [];
 
@@ -44,7 +45,7 @@ require('dotenv').config();
   const allResults = [];
 
   for(const branch of branches) {
-    const {data} = await axios.get(`https://circleci.com/api/v2/insights/${vcsSlug}/workflows/build-and-deploy?branch=${branch}`, {
+    const {data} = await axios.get(`https://circleci.com/api/v2/insights/${vcsSlug}/workflows/${workflowName}?branch=${branch}`, {
       headers: { 
         'Circle-Token': `${apiKey}`,
         'Access-Control-Allow-Origin': '*',
