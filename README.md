@@ -1,6 +1,6 @@
 # About
 
-This repository was written for my [DEV.to article]().
+This repository was written for my [DEV.to article](https://dev.to/sutt0n/better-circleci-insights-visualization-with-recharts-75e).
 
 # Setup
 
